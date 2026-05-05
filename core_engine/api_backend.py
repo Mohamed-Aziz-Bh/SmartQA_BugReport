@@ -20,10 +20,10 @@ logger = logging.getLogger("SmartQA-Backend")
 app = FastAPI(title="Smart QA Assistant", version="3.0.0")
 
 # --- CONFIGURATION JIRA ---
-JIRA_DOMAIN = "azizbelhadjyoussef37.atlassian.net"
-JIRA_EMAIL = "azizbelhadjyoussef37@gmail.com"
-JIRA_API_TOKEN = "ATATT3xFfGF0I_tFpMFmkLL6ygnE4F5cl8GJV1res7nOuN92lI-UCXcLo3_ar6LsV9n1wCC-PvPYgwadAN7SeVxpoVwIwzp_EUGpZYkK3zgjZFW6nyNB4NujVhANxfEJYewVSr_u-JYT80eAooe-4MlvCGsxGd2_jRBwjWqPtjhqN2RZF4vpF60=F191FECE"
-JIRA_PROJECT_KEY = "KAN"
+JIRA_DOMAIN = ""
+JIRA_EMAIL = ""
+JIRA_API_TOKEN = ""
+JIRA_PROJECT_KEY = ""
 
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
