@@ -123,6 +123,28 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+
+    if (msg.type === "SEND_TO_XRAY_EXECUTION") {
+
+        fetch("http://127.0.0.1:8000/xray/execute", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(msg.payload)
+        })
+        .then(res => res.json())
+        .then(data => sendResponse(data))
+        .catch(err => sendResponse({
+            success: false,
+            error: err.message
+        }));
+
+        return true; // async
+    }
+});
+
 /**
  * 5. NOTIFICATION DES TABS
  */

@@ -1,65 +1,18 @@
 text,user_action,selenium_step,user_comment,label,priority,browser_log
 TimeoutException: Expected condition failed: waiting for visibility of By.id: login-btn,CLICK #login-btn,STEP_ACTION: Login,Bouton invisible après 10s,Selenium Timeout,High,error: connection reset by peer
-TimeoutException: Timed out waiting for page to load after 30000ms,OPEN url,STEP_INIT: Load,Page trop lente à charger,Selenium Timeout,High,error: timeout exceeded
-TimeoutException: Expected condition failed: element to be clickable By.css: .submit-btn,CLICK .submit-btn,STEP_ACTION: Submit,Bouton pas encore cliquable,Selenium Timeout,Medium,warn: element not ready
-TimeoutException: Waiting for element to be visible By.xpath: //div[@class='result'],VERIFY result,STEP_VERIFY: Result,Résultat pas affiché dans le délai,Selenium Timeout,High,info: request pending
-TimeoutException: Script timeout: result was not received in 30 seconds,EXECUTE script,STEP_SCRIPT: Execute,Script JS trop long à exécuter,Selenium Timeout,Medium,error: script execution timeout
 StaleElementReferenceException: element is not attached to the page document,CLICK .refresh,STEP_WAIT: Refreshing,DOM rafraîchi pendant l'action,Selenium Sync,Low,warn: DOM mutation detected
-StaleElementReferenceException: stale element reference: element is not attached to DOM,CLICK #next-btn,STEP_NAV: Pagination,Page rechargée entre deux actions,Selenium Sync,Low,warn: page reload detected
-StaleElementReferenceException: Cannot read element after navigation,TYPE input,STEP_INPUT: Form,Navigation inattendue a détaché l'élément,Selenium Sync,Medium,info: navigation event fired
 NoSuchElementException: Unable to locate element: .success-msg,VERIFY text,STEP_VERIFY: Success,Message de succès absent,Functional Bug,Critical,info: navigation to /dashboard failed
-NoSuchElementException: Unable to locate element: By.id: confirm-dialog,CLICK #confirm,STEP_ACTION: Confirm,Boîte de dialogue non affichée,Functional Bug,High,warn: dialog not triggered
-NoSuchElementException: Unable to locate element: By.css: table.data-grid tbody tr,VERIFY table,STEP_VERIFY: Data,Tableau de données vide ou absent,Functional Bug,High,info: API returned empty array
-NoSuchElementException: Unable to locate element: By.xpath: //button[text()='Save'],CLICK Save,STEP_ACTION: Save,Bouton Sauvegarder introuvable,Functional Bug,Medium,warn: form not fully loaded
 ElementClickInterceptedException: Element is not clickable at point,CLICK #submit,STEP_ACTION: Submit,Popup/Overlay cache le bouton,UI Overlay,Medium,error: modal-backdrop active
-ElementClickInterceptedException: Element click intercepted by cookie banner,CLICK .accept-terms,STEP_ACTION: Accept,Bannière cookies bloque l'interaction,UI Overlay,Low,warn: overlay detected
-ElementClickInterceptedException: Another element is receiving the click: div.spinner,CLICK #save,STEP_ACTION: Save,Spinner de chargement intercepte le clic,UI Overlay,Medium,info: loading state active
 HTTP 500 Internal Server Error: /api/v1/user/profile,LOAD Page,STEP_INIT: Profile,Le backend a crashé au chargement,Backend Error,Critical,error: java.lang.NullPointerException
-HTTP 500 Internal Server Error: /api/v2/orders/list,GET /orders,STEP_DATA: Orders,Erreur serveur sur la récupération des commandes,Backend Error,Critical,error: database connection failed
-HTTP 502 Bad Gateway: /api/v1/payment/process,POST /payment,STEP_ACTION: Payment,Service de paiement indisponible,Backend Error,Critical,error: upstream service timeout
-HTTP 503 Service Unavailable: /api/v1/products,GET /products,STEP_DATA: Products,Service temporairement indisponible,Backend Error,High,error: service overloaded
-HTTP 500 Internal Server Error: /api/v1/auth/refresh,POST /refresh,STEP_AUTH: Refresh,Erreur lors du renouvellement du token,Backend Error,Critical,error: token service crashed
 AssertionError: expected 'Welcome Admin' but found 'Login',VERIFY title,STEP_CHECK: Auth,Redirection incorrecte après login,Auth Flow Bug,High,info: cookie session expired
-AssertionError: expected status 200 but received 401,GET /dashboard,STEP_VERIFY: Access,Non authentifié malgré login réussi,Auth Flow Bug,High,error: session not persisted
-AssertionError: expected user role 'admin' but found 'guest',VERIFY role,STEP_CHECK: Role,Rôle utilisateur incorrect après authentification,Auth Flow Bug,Critical,warn: RBAC mismatch
-AssertionError: expected redirect to /home but got /login,VERIFY redirect,STEP_NAV: Post-Login,Redirection post-login incorrecte,Auth Flow Bug,High,info: redirect chain broken
-AssertionError: Login should succeed but got error: invalid credentials,CLICK #login,STEP_ACTION: Login,Credentials valides refusés par le serveur,Auth Flow Bug,Critical,error: auth service error
 InvalidElementStateException: invalid element state: element not interactable,"TYPE ""admin""",STEP_INPUT: Username,Le champ est en lecture seule (readonly),UI State Error,Low,warn: input field disabled
-InvalidElementStateException: element is not enabled,CLICK #submit,STEP_ACTION: Submit,Bouton désactivé au moment du clic,UI State Error,Low,warn: button disabled state
-InvalidElementStateException: element is read-only: cannot send keys,TYPE password,STEP_INPUT: Password,Champ password en lecture seule,UI State Error,Medium,warn: field readonly attribute
 JavascriptException: Cannot read property 'map' of undefined,SCROLL down,STEP_UI: List,Crash JS lors du rendu de la liste,JS Framework Error,Medium,error: TypeError at main.js:42
-JavascriptException: Cannot read property 'innerHTML' of null,CLICK #details,STEP_UI: Details,Élément DOM null lors de l'accès JS,JS Framework Error,Medium,error: TypeError at app.js:156
-JavascriptException: Uncaught ReferenceError: $ is not defined,LOAD Page,STEP_INIT: jQuery,jQuery non chargé correctement,JS Framework Error,High,error: ReferenceError at script.js:1
-JavascriptException: SyntaxError: Unexpected token in JSON at position 0,PARSE response,STEP_DATA: Parse,Réponse API invalide non parsable,JS Framework Error,High,error: JSON parse error
 HTTP 403 Forbidden: Access Denied,CLICK #admin-panel,STEP_NAV: Admin,L'utilisateur n'a pas les droits requis,Permission Error,High,error: JWT token invalid
-HTTP 403 Forbidden: Insufficient permissions to view report,GET /reports,STEP_DATA: Reports,Droits insuffisants pour accéder aux rapports,Permission Error,High,warn: RBAC denied
-HTTP 403 Forbidden: CSRF token mismatch,POST /settings,STEP_ACTION: Settings,Token CSRF invalide ou expiré,Permission Error,Medium,error: CSRF validation failed
 WebDriverException: unknown error: net::ERR_CONNECTION_REFUSED,OPEN url,STEP_START: Init,Le serveur de test est éteint,Infrastructure,Critical,error: network unreachable
-WebDriverException: unknown error: net::ERR_NAME_NOT_RESOLVED,OPEN url,STEP_START: Init,DNS introuvable pour l'URL de test,Infrastructure,Critical,error: DNS resolution failed
-WebDriverException: chrome not reachable,LAUNCH browser,STEP_INIT: Browser,ChromeDriver ne répond plus,Infrastructure,Critical,error: WebDriver session lost
-WebDriverException: unknown error: DevToolsActivePort file doesn't exist,LAUNCH browser,STEP_INIT: Chrome,Chrome n'a pas démarré correctement,Infrastructure,High,error: Chrome startup failed
 NoSuchWindowException: no such window: target window already closed,SWITCH window,STEP_NAV: Tab,La popup s'est fermée inopinément,Selenium Logic,Medium,warn: window handle not found
-NoSuchWindowException: no such window: window was already closed,SWITCH frame,STEP_NAV: Frame,Fenêtre fermée avant le switch,Selenium Logic,Medium,warn: window closed unexpectedly
-SessionNotCreatedException: session not created: Chrome version must be between 70 and 73,LAUNCH browser,STEP_INIT: Session,Version ChromeDriver incompatible,Infrastructure,Critical,error: version mismatch
-MoveTargetOutOfBoundsException: move target is out of viewport,HOVER element,STEP_ACTION: Hover,Élément hors de la zone visible,UI State Error,Low,warn: element out of viewport
-ElementNotVisibleException: element not visible,CLICK #hidden-btn,STEP_ACTION: Click,Élément présent mais invisible,UI State Error,Medium,warn: element visibility false
-InvalidSelectorException: invalid selector: An invalid or illegal selector was specified,FIND element,STEP_FIND: Selector,Sélecteur CSS/XPath invalide,Selenium Logic,High,error: selector syntax error
-AssertionError: expected '15' items but found '0' in cart,VERIFY cart,STEP_VERIFY: Cart,Panier vide alors qu'il devrait contenir des items,Functional Bug,High,info: cart API returned empty
-HTTP 404 Not Found: /api/v1/user/settings,GET /settings,STEP_DATA: Settings,Endpoint API introuvable ou supprimé,Backend Error,High,error: route not found
-AssertionError: expected form to submit but validation errors appeared,CLICK #submit,STEP_ACTION: Form Submit,Validation côté client bloque l'envoi,Functional Bug,Medium,warn: validation failed client-side
-TimeoutException: AJAX request did not complete within 15 seconds,WAIT ajax,STEP_WAIT: AJAX,Requête AJAX trop lente,Selenium Timeout,High,warn: slow network detected
-JavascriptException: Cannot set property 'value' of null,SET value,STEP_INPUT: Set,Tentative d'écriture sur un élément null,JS Framework Error,Medium,error: null element reference
-HTTP 401 Unauthorized: Token expired,GET /profile,STEP_DATA: Profile,Token d'accès expiré pendant la session,Auth Flow Bug,High,error: JWT expired
-AssertionError: expected modal to open but it did not,CLICK #open-modal,STEP_UI: Modal,Modal non déclenché au clic,Functional Bug,Medium,warn: modal event not fired
-WebDriverException: Message: invalid session id,EXECUTE command,STEP_ACTION: Command,Session WebDriver invalide ou expirée,Infrastructure,Critical,error: session id mismatch
-ElementClickInterceptedException: Element obscured by fixed header,CLICK #anchor-link,STEP_NAV: Anchor,Header fixe cache le lien cible,UI Overlay,Low,warn: fixed header overlap
-AssertionError: expected search to return results but got empty list,SEARCH keyword,STEP_VERIFY: Search,Recherche ne retourne aucun résultat,Functional Bug,High,info: search index empty
-HTTP 422 Unprocessable Entity: Validation failed on field 'email',POST /register,STEP_ACTION: Register,Format email invalide rejeté par l'API,Backend Error,Medium,error: validation error
-JavascriptException: Maximum call stack size exceeded,LOAD Page,STEP_INIT: Load,Récursion infinie détectée dans le JS,JS Framework Error,Critical,error: stack overflow at app.js
-StaleElementReferenceException: Element removed from DOM during test,VERIFY text,STEP_VERIFY: Text,Élément supprimé du DOM pendant la vérification,Selenium Sync,Medium,warn: DOM updated during assertion
-AssertionError: expected notification to appear but timeout reached,TRIGGER event,STEP_VERIFY: Notification,Notification non affichée dans le délai,Functional Bug,Medium,warn: notification timeout
-HTTP 429 Too Many Requests: Rate limit exceeded,GET /api/data,STEP_DATA: Fetch,Limite de requêtes API atteinte,Backend Error,Medium,error: rate limit hit
-Échec détecté dans : Successful login,Auto-Detected,,Auto-learning trigger,New_Anomalie,HIGH,No logs
-Échec détecté dans : Successful login,Auto-Detected,,Auto-learning trigger,New_Anomalie,HIGH,No logs
-Échec détecté dans : Successful login,Auto-Detected,,Auto-learning trigger,New_Anomalie,HIGH,No logs
-Échec détecté dans : Successful login,Auto-Detected,N/A,Auto-learning trigger,New_Anomalie,HIGH,No logs
+Expected condition failed: waiting for visibility of element located by By.cssSelector: .flash.success,Auto-Detected,,Auto-learning trigger,New_Anomalie_Expected_condition_failed:,HIGH,No logs
+Expected condition failed: waiting for element to be clickable: By.id: checkout,Auto-Detected,,Auto-learning trigger,New_Anomalie_Expected_condition_failed:,HIGH,No logs
+Expected condition failed: waiting for element to be clickable: By.id: react-burger-menu-btn,Auto-Detected,,Auto-learning trigger,New_Anomalie_Expected_condition_failed:,HIGH,No logs
+Cart badge should show 1 but was 0 ==> expected: <1> but was: <0>,Auto-Detected,,Auto-learning trigger,New_Anomalie_Cart_badge_should,HIGH,No logs
+"Cannot invoke ""org.openqa.selenium.JavascriptExecutor.executeScript(String, Object[])"" because ""this.js"" is null",Auto-Detected,,Auto-learning trigger,"New_Anomalie_Cannot_invoke_""org.openqa.selenium.JavascriptExecutor.executeScript(String,",HIGH,No logs
+Expected condition failed: waiting for element to be clickable: By.cssSelector: button[id^='add-to-cart'],Auto-Detected,N/A,Auto-learning trigger,New_Anomalie_Expected_condition_failed:,HIGH,No logs

@@ -65,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * 3. LOGIQUE D'EXPORTATION (JSON & JIRA)
  */
+function mapStatus(status) {
+    const s = (status || "").toLowerCase();
+
+    if (["passed", "success", "ok"].includes(s)) return "PASSED";
+    if (["failed", "error", "fail"].includes(s)) return "FAILED";
+
+    return "TODO";
+}
 function exportFullSession(shouldDownload = true) {
     chrome.storage.local.get({ actions: [] }, (data) => {
         const filtered = getFilteredActions(data.actions);
@@ -74,50 +82,105 @@ function exportFullSession(shouldDownload = true) {
         }
 
         const sessionReport = {
-            project_info: {
-                name: "SmartQA Professional Export",
-                date: new Date().toLocaleString(),
-                total_scenarios: filtered.length
-            },
-            test_results: filtered.map(action => ({
-                scenario: action.scenario_name,
-                status: action.status,
-                priority: action.priority || "MEDIUM",
-                timestamp: action.timestamp,
-                ia_analysis: {
-                    suggestion: action.suggestion || "N/A",
-                    details: action.analysis || "N/A"
-                },
-                steps: action.steps || [],
-                screenshot: action.screenshot || null
-            }))
-        };
+    project_info: {
+        name: "SmartQA Professional Export",
+        date: new Date().toLocaleString(),
+        total_scenarios: filtered.length
+    },
+    test_results: filtered.map((action, index) => ({
+        testKey: action.testKey || `QA-${index + 1}`,   // 🔥 IMPORTANT
+        status: mapStatus(action.status),
+        scenario: action.scenario_name,
+        priority: action.priority || "MEDIUM",
+
+        analysis: action.analysis || "",
+        suggestion: action.suggestion || "",
+
+        steps: (action.steps || []).map(step => ({
+            text: step.text,
+            status: step.status
+        })),
+
+        screenshot: action.screenshot || undefined
+    }))
+};
+        
 
         if (shouldDownload) {
             downloadJsonReport(sessionReport);
         } else {
-            sendToJira(sessionReport);
+            sendToXray(sessionReport);
         }
     });
 }
 
-function sendToJira(sessionReport) {
+
+function downloadJsonReport(data) {
+
+    const jsonString = JSON.stringify(
+        data,
+        null,
+        2
+    );
+
+    const blob = new Blob(
+        [jsonString],
+        {
+            type: "application/json"
+        }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download =
+        `smartqa_report_${
+            Date.now()
+        }.json`;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+}
+
+
+
+function sendToXray(sessionReport) {
+
     const jiraBtn = document.getElementById('jira-global-btn');
     const originalContent = jiraBtn.innerHTML;
-    
-    jiraBtn.disabled = true;
-    jiraBtn.innerHTML = `<i class="material-icons rotate">sync</i> <span>ENVOI...</span>`;
 
-    chrome.runtime.sendMessage({ 
-        type: "CREATE_JIRA_TICKET_SESSION", 
-        payload: sessionReport 
+    jiraBtn.disabled = true;
+    jiraBtn.innerHTML = `<i class="material-icons rotate">sync</i> <span>ENVOI XRAY...</span>`;
+
+    chrome.runtime.sendMessage({
+        type: "SEND_TO_XRAY_EXECUTION",
+        payload: sessionReport
     }, (response) => {
+
         jiraBtn.disabled = false;
         jiraBtn.innerHTML = originalContent;
+
         if (response && response.success) {
-            alert(`Ticket Jira créé avec succès : ${response.issueKey}`);
+
+            alert(
+                `Xray Execution envoyée avec succès 🚀\n` +
+                `Execution Key: ${response.execution?.key || response.executionKey || "N/A"}`
+            );
+
         } else {
-            alert("Erreur Jira : " + (response?.error || "Vérifiez votre Backend FastAPI"));
+
+            alert(
+                "Erreur Xray : " +
+                (response?.error || "Vérifiez votre backend FastAPI / Xray API")
+            );
         }
     });
 }
@@ -233,6 +296,7 @@ function renderDetailsContent(action) {
                 </div>` : ''}
         </div>`;
 }
+
 
 function getStatusBadgeClass(label) {
     if (['PASSED', 'SUCCESS'].includes(label)) return 'badge-success';

@@ -70,6 +70,7 @@ public class Hooks {
 
             // 2. EXTRACTION FILTRÉE DES STATUTS RÉELS
             List<String> realStatuses = new ArrayList<>();
+            String errorMessage = "";
             try {
                 Field delegateField = scenario.getClass().getDeclaredField("delegate");
                 delegateField.setAccessible(true);
@@ -84,7 +85,15 @@ public class Hooks {
                 // On essaie de récupérer uniquement les "testSteps" pour synchroniser avec le .feature
                 for (io.cucumber.plugin.event.Result res : results) {
                     // On ajoute le statut en minuscule (passed, failed, skipped, etc.)
-                    realStatuses.add(res.getStatus().toString().toLowerCase());
+                    String currentStatus = res.getStatus().toString().toLowerCase();
+                    realStatuses.add(currentStatus);
+                    if (currentStatus.equals("failed") && res.getError() != null) {
+                        errorMessage = res.getError().getMessage();
+                        // Si getMessage() est vide, on prend le toString() pour avoir le nom de l'exception
+                        if (errorMessage == null || errorMessage.isEmpty()) {
+                            errorMessage = res.getError().toString();
+                        }
+                    }
                 }
 
                 System.out.println("📊 Statuts détectés par Cucumber : " + realStatuses);
@@ -147,7 +156,11 @@ public class Hooks {
             payload.put("scenario_name", scenario.getName());
             payload.put("status", status);
             payload.put("steps", stepsArray);
-            payload.put("error_details", scenario.isFailed() ? "Échec détecté dans : " + scenario.getName() : "Succès");
+            if (scenario.isFailed()) {
+                payload.put("error_details", errorMessage.isEmpty() ? "Erreur inconnue" : errorMessage);
+            } else {
+                payload.put("error_details", "Succès");
+            }
             payload.put("screenshot", base64Screenshot);
 
             sendDataToFastAPI(payload.toString());

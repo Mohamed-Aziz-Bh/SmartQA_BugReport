@@ -1,18 +1,48 @@
 -------------------------------------------------------------------------------
 Test set: CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 43.21 s <<< FAILURE! -- in CucumberRunnerTest
-User Login.Successful login -- Time elapsed: 13.82 s <<< ERROR!
+Tests run: 13, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 101.9 s <<< FAILURE! -- in CucumberRunnerTest
+User Login.Successful login -- Time elapsed: 14.28 s <<< ERROR!
 org.openqa.selenium.TimeoutException: 
 Expected condition failed: waiting for visibility of element located by By.cssSelector: .flash.success (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: '4.12.1', revision: '8e34639b11'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.102, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:8196}, goog:processID: 22592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:8196/devtool..., se:cdpVersion: 147.0.7727.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 24f6ee998a0b32da9426996d9b50c31e
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:4873}, goog:processID: 17040, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:4873/devtool..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8680493061338357a985c5869752bc1c
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
 	at pages.loginPage.getSuccessMessage(loginPage.java:42)
 	at StepDefinitions.LoginStep.userSeesSuccessfulLoginMessage(LoginStep.java:75)
 	at ✽.the user should see a successful login message(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/login.feature:10)
+
+SauceDemo E-commerce Full Flow.Add product to cart -- Time elapsed: 13.70 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Cart badge should show 1 but was 0 ==> expected: <1> but was: <0>
+	at StepDefinitions.SauceDemoStep.verifyCartBadge(SauceDemoStep.java:94)
+	at ✽.the cart badge should show 1 item(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:15)
+
+SauceDemo E-commerce Full Flow.Add specific product #1 -- Time elapsed: 14.10 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Cart badge should show 1 but was 0 ==> expected: <1> but was: <0>
+	at StepDefinitions.SauceDemoStep.verifyCartBadge(SauceDemoStep.java:94)
+	at ✽.the cart badge should show 1 item(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:20)
+
+SauceDemo E-commerce Full Flow.Complete purchase -- Time elapsed: 14.57 s <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for element to be clickable: By.cssSelector: button[id^='add-to-cart'] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.12.1', revision: '8e34639b11'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:14804}, goog:processID: 21372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:14804/devtoo..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7ce60ecec8164617b0038b80a3023708
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at pages.SauceDemoInventoryPage.addFirstProductToCart(SauceDemoInventoryPage.java:35)
+	at StepDefinitions.SauceDemoStep.addFirstProduct(SauceDemoStep.java:68)
+	at ✽.the user adds the first product to the cart(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:29)
+
+SauceDemo E-commerce Full Flow.Successful logout -- Time elapsed: 3.624 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.JavascriptExecutor.executeScript(String, Object[])" because "this.js" is null
+	at pages.SauceDemoInventoryPage.openMenu(SauceDemoInventoryPage.java:76)
+	at StepDefinitions.SauceDemoStep.openMenu(SauceDemoStep.java:159)
+	at ✽.the user clicks on the menu(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:39)
 

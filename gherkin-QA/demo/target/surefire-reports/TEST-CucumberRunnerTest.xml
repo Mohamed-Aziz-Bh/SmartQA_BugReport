@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CucumberRunnerTest" time="43.211" tests="7" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CucumberRunnerTest" time="101.883" tests="13" errors="3" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\lenovo\AppData\Local\Temp\surefire13115935097781883110\surefirebooter-20260505124318287_3.jar C:\Users\lenovo\AppData\Local\Temp\surefire13115935097781883110 2026-05-05T12-43-18_083-jvmRun1 surefire-20260505124318287_1tmp surefire_0-20260505124318287_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\lenovo\AppData\Local\Temp\surefire3804584422257796880\surefirebooter-20260518012130310_3.jar C:\Users\lenovo\AppData\Local\Temp\surefire3804584422257796880 2026-05-18T01-21-30_105-jvmRun1 surefire-20260518012130310_1tmp surefire_0-20260518012130310_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="CucumberRunnerTest"/>
     <property name="surefire.test.class.path" value="C:\Users\lenovo\Desktop\PFE 2026\Projet\Smart-QA-Assistant\gherkin-QA\demo\target\test-classes;C:\Users\lenovo\Desktop\PFE 2026\Projet\Smart-QA-Assistant\gherkin-QA\demo\target\classes;C:\Users\lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.1\junit-jupiter-api-5.11.1.jar;C:\Users\lenovo\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\lenovo\.m2\repository\org\junit\platform\junit-platform-commons\1.11.1\junit-platform-commons-1.11.1.jar;C:\Users\lenovo\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\lenovo\.m2\repository\org\junit\vintage\junit-vintage-engine\5.11.1\junit-vintage-engine-5.11.1.jar;C:\Users\lenovo\.m2\repository\org\junit\platform\junit-platform-engine\1.11.1\junit-platform-engine-1.11.1.jar;C:\Users\lenovo\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\lenovo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-java\4.12.1\selenium-java-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-api\4.12.1\selenium-api-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.12.1\selenium-chrome-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\lenovo\.m2\repository\com\google\guava\guava\32.1.2-jre\guava-32.1.2-jre.jar;C:\Users\lenovo\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\lenovo\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\lenovo\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\lenovo\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\lenovo\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\lenovo\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.12.1\selenium-chromium-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-json\4.12.1\selenium-json-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.12.1\selenium-manager-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v114\4.12.1\selenium-devtools-v114-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v115\4.12.1\selenium-devtools-v115-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v116\4.12.1\selenium-devtools-v116-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.12.1\selenium-devtools-v85-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.12.1\selenium-edge-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.12.1\selenium-firefox-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-http\4.12.1\selenium-http-4.12.1.jar;C:\Users\lenovo\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.12.1\selenium-ie-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.12.1\selenium-remote-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-buffer\4.1.96.Final\netty-buffer-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-codec-http\4.1.96.Final\netty-codec-http-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-codec\4.1.96.Final\netty-codec-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-handler\4.1.96.Final\netty-handler-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-common\4.1.96.Final\netty-common-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.96.Final\netty-transport-classes-epoll-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-classes-kqueue\4.1.96.Final\netty-transport-classes-kqueue-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-native-epoll\4.1.96.Final\netty-transport-native-epoll-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.96.Final\netty-transport-native-kqueue-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.96.Final\netty-transport-native-unix-common-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport\4.1.96.Final\netty-transport-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-resolver\4.1.96.Final\netty-resolver-4.1.96.Final.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-api\1.28.0\opentelemetry-api-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-context\1.28.0\opentelemetry-context-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.28.0\opentelemetry-exporter-logging-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.28.0\opentelemetry-sdk-metrics-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-extension-incubator\1.28.0-alpha\opentelemetry-extension-incubator-1.28.0-alpha.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.28.0\opentelemetry-sdk-logs-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.28.0\opentelemetry-sdk-common-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.28.0\opentelemetry-sdk-extension-autoconfigure-spi-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.28.0\opentelemetry-sdk-extension-autoconfigure-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-api-events\1.28.0-alpha\opentelemetry-api-events-1.28.0-alpha.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.28.0\opentelemetry-sdk-trace-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.28.0\opentelemetry-sdk-1.28.0.jar;C:\Users\lenovo\.m2\repository\io\opentelemetry\opentelemetry-semconv\1.28.0-alpha\opentelemetry-semconv-1.28.0-alpha.jar;C:\Users\lenovo\.m2\repository\net\bytebuddy\byte-buddy\1.14.5\byte-buddy-1.14.5.jar;C:\Users\lenovo\.m2\repository\org\asynchttpclient\async-http-client\2.12.3\async-http-client-2.12.3.jar;C:\Users\lenovo\.m2\repository\org\asynchttpclient\async-http-client-netty-utils\2.12.3\async-http-client-netty-utils-2.12.3.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-codec-socks\4.1.60.Final\netty-codec-socks-4.1.60.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-handler-proxy\4.1.60.Final\netty-handler-proxy-4.1.60.Final.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-native-epoll\4.1.60.Final\netty-transport-native-epoll-4.1.60.Final-linux-x86_64.jar;C:\Users\lenovo\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.60.Final\netty-transport-native-kqueue-4.1.60.Final-osx-x86_64.jar;C:\Users\lenovo\.m2\repository\com\typesafe\netty\netty-reactive-streams\2.0.4\netty-reactive-streams-2.0.4.jar;C:\Users\lenovo\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-os\4.12.1\selenium-os-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.12.1\selenium-safari-driver-4.12.1.jar;C:\Users\lenovo\.m2\repository\org\seleniumhq\selenium\selenium-support\4.12.1\selenium-support-4.12.1.jar;C:\Users\lenovo\.m2\repository\io\github\bonigarcia\webdrivermanager\5.7.0\webdrivermanager-5.7.0.jar;C:\Users\lenovo\.m2\repository\org\slf4j\slf4j-api\2.0.12\slf4j-api-2.0.12.jar;C:\Users\lenovo\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\lenovo\.m2\repository\com\github\docker-java\docker-java\3.3.5\docker-java-3.3.5.jar;C:\Users\lenovo\.m2\repository\com\github\docker-java\docker-java-core\3.3.5\docker-java-core-3.3.5.jar;C:\Users\lenovo\.m2\repository\com\github\docker-java\docker-java-api\3.3.5\docker-java-api-3.3.5.jar;C:\Users\lenovo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\lenovo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\lenovo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\lenovo\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\lenovo\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\lenovo\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\lenovo\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\lenovo\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.5\docker-java-transport-httpclient5-3.3.5.jar;C:\Users\lenovo\.m2\repository\com\github\docker-java\docker-java-transport\3.3.5\docker-java-transport-3.3.5.jar;C:\Users\lenovo\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\lenovo\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\lenovo\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\lenovo\.m2\repository\org\apache\commons\commons-compress\1.26.0\commons-compress-1.26.0.jar;C:\Users\lenovo\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\lenovo\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\lenovo\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-java\6.10.4\cucumber-java-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-core\6.10.4\cucumber-core-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-gherkin\6.10.4\cucumber-gherkin-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-gherkin-messages\6.10.4\cucumber-gherkin-messages-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\messages\15.0.0\messages-15.0.0.jar;C:\Users\lenovo\.m2\repository\io\cucumber\tag-expressions\3.0.1\tag-expressions-3.0.1.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-expressions\10.3.0\cucumber-expressions-10.3.0.jar;C:\Users\lenovo\.m2\repository\io\cucumber\datatable\3.5.0\datatable-3.5.0.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-plugin\6.10.4\cucumber-plugin-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\docstring\6.10.4\docstring-6.10.4.jar;C:\Users\lenovo\.m2\repository\io\cucumber\html-formatter\13.0.0\html-formatter-13.0.0.jar;C:\Users\lenovo\.m2\repository\io\cucumber\create-meta\4.0.0\create-meta-4.0.0.jar;C:\Users\lenovo\.m2\repository\io\cucumber\cucumber-junit\6.10.4\cucumber-junit-6.10.4.jar;C:\Users\lenovo\.m2\repository\commons-io\commons-io\2.8.0\commons-io-2.8.0.jar;C:\Users\lenovo\.m2\repository\com\aventstack\extentreports\5.0.6\extentreports-5.0.6.jar;C:\Users\lenovo\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar;C:\Users\lenovo\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\lenovo\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar;C:\Users\lenovo\.m2\repository\org\projectlombok\lombok\1.18.12\lombok-1.18.12.jar;C:\Users\lenovo\.m2\repository\org\json\json\20231013\json-20231013.jar;"/>
@@ -33,7 +33,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\lenovo\AppData\Local\Temp\surefire13115935097781883110\surefirebooter-20260505124318287_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\lenovo\AppData\Local\Temp\surefire3804584422257796880\surefirebooter-20260518012130310_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -61,7 +61,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="Toggle checkboxes successfully" classname="Checkboxes Management" time="6.172">
+  <testcase name="Toggle checkboxes successfully" classname="Checkboxes Management" time="5.856">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed]
 🔗 Match : [passed] -> When the user clicks on checkbox 1
 🔗 Match : [passed] -> Then checkbox 1 should be "selected"
@@ -71,52 +71,52 @@
     <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
 SLF4J(W): Defaulting to no-operation (NOP) logger implementation
 SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-mai 05, 2026 12:43:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:23 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+mai 18, 2026 1:21:35 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:21:35 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Incorrect initial state verification #1" classname="Checkboxes Management" time="2.935">
+  <testcase name="Incorrect initial state verification #1" classname="Checkboxes Management" time="2.846">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed]
 🔗 Match : [passed] -> Then checkbox <number> should be "<expected_state>"
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:27 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:27 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:21:39 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:21:39 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Incorrect initial state verification #2" classname="Checkboxes Management" time="2.932">
+  <testcase name="Incorrect initial state verification #2" classname="Checkboxes Management" time="3.057">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed]
 🔗 Match : [passed] -> Then checkbox <number> should be "<expected_state>"
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:30 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:21:41 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:21:41 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Wait for hidden element" classname="Dynamic Loading Wait" time="8.397">
+  <testcase name="Wait for hidden element" classname="Dynamic Loading Wait" time="8.644">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed]
 🔗 Match : [passed] -> Given the user is on the dynamic loading page
 🔗 Match : [passed] -> When the user clicks the start button
 🔗 Match : [passed] -> Then the loading finish text should be "Hello World!"
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:33 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:21:45 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:21:45 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Successful login" classname="User Login" time="13.823">
-    <error message="Expected condition failed: waiting for visibility of element located by By.cssSelector: .flash.success (tried for 10 second(s) with 500 milliseconds interval)&#10;Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.102, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:8196}, goog:processID: 22592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:8196/devtool..., se:cdpVersion: 147.0.7727.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 24f6ee998a0b32da9426996d9b50c31e" type="org.openqa.selenium.TimeoutException"><![CDATA[org.openqa.selenium.TimeoutException: 
+  <testcase name="Successful login" classname="User Login" time="14.285">
+    <error message="Expected condition failed: waiting for visibility of element located by By.cssSelector: .flash.success (tried for 10 second(s) with 500 milliseconds interval)&#10;Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:4873}, goog:processID: 17040, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:4873/devtool..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 8680493061338357a985c5869752bc1c" type="org.openqa.selenium.TimeoutException"><![CDATA[org.openqa.selenium.TimeoutException: 
 Expected condition failed: waiting for visibility of element located by By.cssSelector: .flash.success (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: '4.12.1', revision: '8e34639b11'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.102, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:8196}, goog:processID: 22592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:8196/devtool..., se:cdpVersion: 147.0.7727.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 24f6ee998a0b32da9426996d9b50c31e
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:4873}, goog:processID: 17040, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:4873/devtool..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8680493061338357a985c5869752bc1c
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
 	at pages.loginPage.getSuccessMessage(loginPage.java:42)
@@ -130,13 +130,13 @@ Session ID: 24f6ee998a0b32da9426996d9b50c31e
 🔗 Match : [passed] -> And clicks on the login button
 🔗 Match : [passed] -> Then the user should see a successful login message
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:41 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:41 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:21:53 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:21:53 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Failed login #1" classname="User Login" time="3.813">
+  <testcase name="Failed login #1" classname="User Login" time="3.946">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed]
 🔗 Match : [passed] -> Given the user is on the login page
 🔗 Match : [passed] -> When the user enters a username as "<username>"
@@ -144,13 +144,13 @@ WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need t
 🔗 Match : [passed] -> And clicks on the login button
 🔗 Match : [passed] -> Then the user should see a login failure message
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:22:08 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:08 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Failed login #2" classname="User Login" time="3.968">
+  <testcase name="Failed login #2" classname="User Login" time="3.887">
     <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed]
 🔗 Match : [passed] -> Given the user is on the login page
 🔗 Match : [passed] -> When the user enters a username as "<username>"
@@ -158,10 +158,111 @@ WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need t
 🔗 Match : [passed] -> And clicks on the login button
 🔗 Match : [passed] -> Then the user should see a login failure message
 ]]></system-out>
-    <system-err><![CDATA[mai 05, 2026 12:43:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-mai 05, 2026 12:43:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.102. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[mai 18, 2026 1:22:12 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:12 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Add product to cart" classname="SauceDemo E-commerce Full Flow" time="13.696">
+    <failure message="Cart badge should show 1 but was 0 ==&gt; expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Cart badge should show 1 but was 0 ==> expected: <1> but was: <0>
+	at StepDefinitions.SauceDemoStep.verifyCartBadge(SauceDemoStep.java:94)
+	at ✽.the cart badge should show 1 item(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:15)
+]]></failure>
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed, passed, passed, failed]
+🔗 Match : [passed] -> When the user adds the first product to the cart
+🔗 Match : [passed] -> Then the cart badge should show 1 item
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:22:15 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:15 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Add specific product #1" classname="SauceDemo E-commerce Full Flow" time="14.099">
+    <failure message="Cart badge should show 1 but was 0 ==&gt; expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Cart badge should show 1 but was 0 ==> expected: <1> but was: <0>
+	at StepDefinitions.SauceDemoStep.verifyCartBadge(SauceDemoStep.java:94)
+	at ✽.the cart badge should show 1 item(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:20)
+]]></failure>
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed, passed, passed, failed]
+🔗 Match : [passed] -> When the user adds "<product>" to the cart
+🔗 Match : [passed] -> Then the cart badge should show 1 item
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:22:29 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:29 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Add specific product #2" classname="SauceDemo E-commerce Full Flow" time="8.883">
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed, passed, passed, passed]
+🔗 Match : [passed] -> When the user adds "<product>" to the cart
+🔗 Match : [passed] -> Then the cart badge should show 1 item
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:22:43 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:43 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Complete purchase" classname="SauceDemo E-commerce Full Flow" time="14.566">
+    <error message="Expected condition failed: waiting for element to be clickable: By.cssSelector: button[id^=&apos;add-to-cart&apos;] (tried for 5 second(s) with 500 milliseconds interval)&#10;Build info: version: &apos;4.12.1&apos;, revision: &apos;8e34639b11&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:14804}, goog:processID: 21372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:14804/devtoo..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 7ce60ecec8164617b0038b80a3023708" type="org.openqa.selenium.TimeoutException"><![CDATA[org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for element to be clickable: By.cssSelector: button[id^='add-to-cart'] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.12.1', revision: '8e34639b11'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:/Users/lenovo/Desktop/PFE...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:14804}, goog:processID: 21372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:14804/devtoo..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7ce60ecec8164617b0038b80a3023708
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at pages.SauceDemoInventoryPage.addFirstProductToCart(SauceDemoInventoryPage.java:35)
+	at StepDefinitions.SauceDemoStep.addFirstProduct(SauceDemoStep.java:68)
+	at ✽.the user adds the first product to the cart(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:29)
+]]></error>
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed, passed, failed, skipped, skipped, skipped, skipped, skipped, skipped]
+🔗 Match : [passed] -> When the user adds the first product to the cart
+🔗 Match : [passed] -> And the user goes to the cart
+🔗 Match : [passed] -> And the user clicks on checkout
+🔗 Match : [passed] -> And the user fills checkout information with "John" "Doe" "12345"
+🔗 Match : [passed] -> And the user clicks continue
+🔗 Match : [passed] -> And the user clicks finish
+🔗 Match : [passed] -> Then the user should see order confirmation message
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:22:52 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:22:52 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Successful logout" classname="SauceDemo E-commerce Full Flow" time="3.624">
+    <error message="Cannot invoke &quot;org.openqa.selenium.JavascriptExecutor.executeScript(String, Object[])&quot; because &quot;this.js&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.JavascriptExecutor.executeScript(String, Object[])" because "this.js" is null
+	at pages.SauceDemoInventoryPage.openMenu(SauceDemoInventoryPage.java:76)
+	at StepDefinitions.SauceDemoStep.openMenu(SauceDemoStep.java:159)
+	at ✽.the user clicks on the menu(file:///C:/Users/lenovo/Desktop/PFE%202026/Projet/Smart-QA-Assistant/gherkin-QA/demo/src/test/resources/features/saucedemo.feature:39)
+]]></error>
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed, passed, failed, skipped, skipped]
+🔗 Match : [passed] -> When the user clicks on the menu
+🔗 Match : [passed] -> And the user clicks logout
+🔗 Match : [passed] -> Then the user should be redirected to the login page
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:23:07 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:23:07 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="SauceDemo Login" classname="saucedemo login" time="3.203">
+    <system-out><![CDATA[📊 Statuts détectés par Cucumber : [passed, passed, passed, passed, passed, passed]
+🔗 Match : [passed] -> Given the user is on the SauceDemo login page
+🔗 Match : [passed] -> When the user enters username as "standard_user" on SauceDemo
+🔗 Match : [passed] -> And the user enters password as "secret_sauce" on SauceDemo
+🔗 Match : [passed] -> And clicks on the SauceDemo login button
+🔗 Match : [passed] -> Then the user should be logged in successfully
+]]></system-out>
+    <system-err><![CDATA[mai 18, 2026 1:23:10 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+mai 18, 2026 1:23:10 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.12.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
 </testsuite>
