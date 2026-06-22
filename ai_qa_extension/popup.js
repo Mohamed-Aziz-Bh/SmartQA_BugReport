@@ -1,8 +1,5 @@
 let selectedStepIndex = null;
-
-/**
- * 1. SURVEILLANCE DES CHANGEMENTS (Temps réel)
- */
+//Surveillance des changements dans le stockage en temps réel
 chrome.storage.onChanged.addListener((changes, area) => {
     if (area === 'local' && (changes.actions || changes.lastUpdate)) {
         renderTimeline();
@@ -17,25 +14,15 @@ chrome.storage.onChanged.addListener((changes, area) => {
     }
 });
 
-/**
- * 2. INITIALISATION
- */
+//Initialisation du popup
 document.addEventListener('DOMContentLoaded', () => {
     detectWebdriverMode();
     renderTimeline();
-    
-    // Efface le badge dès qu'on ouvre l'extension
     chrome.runtime.sendMessage({ type: "CLEAR_BADGE" });
-    
-    // Bouton Export JSON
     const downloadBtn = document.getElementById('download-report-btn');
     if (downloadBtn) downloadBtn.onclick = () => exportFullSession(true);
-
-    // Bouton Jira Global
     const jiraBtn = document.getElementById('jira-global-btn');
     if (jiraBtn) jiraBtn.onclick = () => exportFullSession(false);
-
-    // Bouton Nettoyer Session
     const clearBtn = document.getElementById('clear-btn');
     if (clearBtn) {
         clearBtn.onclick = () => {
@@ -49,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Fermeture du panel de détails
     const closeBtn = document.getElementById('close-panel');
     if (closeBtn) {
         closeBtn.onclick = () => {
@@ -62,9 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/**
- * 3. LOGIQUE D'EXPORTATION (JSON & JIRA)
- */
+//Exportation
+function mapStatus(status) {
+    const s = (status || "").toLowerCase();
+
+    if (["passed", "success", "ok"].includes(s)) return "PASSED";
+    if (["failed", "error", "fail"].includes(s)) return "FAILED";
+
+    return "TODO";
+}
 function exportFullSession(shouldDownload = true) {
     chrome.storage.local.get({ actions: [] }, (data) => {
         const filtered = getFilteredActions(data.actions);
@@ -74,57 +66,106 @@ function exportFullSession(shouldDownload = true) {
         }
 
         const sessionReport = {
-            project_info: {
-                name: "SmartQA Professional Export",
-                date: new Date().toLocaleString(),
-                total_scenarios: filtered.length
-            },
-            test_results: filtered.map(action => ({
-                scenario: action.scenario_name,
-                status: action.status,
-                priority: action.priority || "MEDIUM",
-                timestamp: action.timestamp,
-                ia_analysis: {
-                    suggestion: action.suggestion || "N/A",
-                    details: action.analysis || "N/A"
-                },
-                steps: action.steps || [],
-                screenshot: action.screenshot || null
-            }))
-        };
+    project_info: {
+        name: "SmartQA Professional Export",
+        date: new Date().toLocaleString(),
+        total_scenarios: filtered.length
+    },
+    test_results: filtered.map((action, index) => ({
+        testKey: action.testKey || `QA-${index + 1}`, 
+        status: mapStatus(action.status),
+        scenario: action.scenario_name,
+        priority: action.priority || "MEDIUM",
 
+        analysis: action.analysis || "",
+        suggestion: action.suggestion || "",
+
+        steps: (action.steps || []).map(step => ({
+            text: step.text,
+            status: step.status
+        })),
+
+        screenshot: action.screenshot || undefined
+    }))
+};        
         if (shouldDownload) {
             downloadJsonReport(sessionReport);
         } else {
-            sendToJira(sessionReport);
+            sendToXray(sessionReport);
         }
     });
 }
 
-function sendToJira(sessionReport) {
+function downloadJsonReport(data) {
+
+    const jsonString = JSON.stringify(
+        data,
+        null,
+        2
+    );
+
+    const blob = new Blob(
+        [jsonString],
+        {
+            type: "application/json"
+        }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download =
+        `smartqa_report_${
+            Date.now()
+        }.json`;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+}
+
+
+function sendToXray(sessionReport) {
+
     const jiraBtn = document.getElementById('jira-global-btn');
     const originalContent = jiraBtn.innerHTML;
-    
-    jiraBtn.disabled = true;
-    jiraBtn.innerHTML = `<i class="material-icons rotate">sync</i> <span>ENVOI...</span>`;
 
-    chrome.runtime.sendMessage({ 
-        type: "CREATE_JIRA_TICKET_SESSION", 
-        payload: sessionReport 
+    jiraBtn.disabled = true;
+    jiraBtn.innerHTML = `<i class="material-icons rotate">sync</i> <span>ENVOI XRAY...</span>`;
+
+    chrome.runtime.sendMessage({
+        type: "SEND_TO_XRAY_EXECUTION",
+        payload: sessionReport
     }, (response) => {
+
         jiraBtn.disabled = false;
         jiraBtn.innerHTML = originalContent;
+
         if (response && response.success) {
-            alert(`Ticket Jira créé avec succès : ${response.issueKey}`);
+
+            alert(
+                `Xray Execution envoyée avec succès 🚀\n` +
+                `Execution Key: ${response.execution?.key || response.executionKey || "N/A"}`
+            );
+
         } else {
-            alert("Erreur Jira : " + (response?.error || "Vérifiez votre Backend FastAPI"));
+
+            alert(
+                "Erreur Xray : " +
+                (response?.error || "Vérifiez votre backend FastAPI / Xray API")
+            );
         }
     });
 }
 
-/**
- * 4. RENDU DE LA TIMELINE
- */
+//Timeline
 function getFilteredActions(actions) {
     return actions.filter(a => a.scenario_name && a.isReport);
 }
@@ -134,7 +175,7 @@ function renderTimeline() {
         const container = document.getElementById('timeline');
         if (!container) return;
 
-        const filteredActions = getFilteredActions(data.actions).reverse(); // Derniers en haut
+        const filteredActions = getFilteredActions(data.actions).reverse();
 
         updateStatsUI(
             filteredActions.length, 
@@ -152,8 +193,6 @@ function renderTimeline() {
             const isFailed = action.status === 'FAILED' || action.status === 'ERROR';
             const step = document.createElement('div');
             step.className = `timeline-step ${isFailed ? 'failed-step' : 'passed-step'} ${selectedStepIndex === index ? 'active' : ''}`;
-            
-            // On affiche un badge de priorité si c'est une erreur
             const priorityBadge = isFailed ? `<span class="prio-tag ${action.priority?.toLowerCase()}">${action.priority}</span>` : '';
 
             step.innerHTML = `
@@ -170,9 +209,7 @@ function renderTimeline() {
     });
 }
 
-/**
- * 5. RENDU DES DÉTAILS (IA & PRIORITÉ)
- */
+//Details
 function selectStep(index, filteredList) {
     selectedStepIndex = index;
     const panel = document.getElementById('details-panel');
@@ -188,8 +225,6 @@ function renderDetailsContent(action) {
 
     const isError = action.status === 'FAILED' || action.status === 'ERROR';
     const priority = action.priority || "LOW";
-    
-    // Détermination de la couleur de l'IA selon la priorité
     const aiColor = priority === "CRITICAL" || priority === "HIGH" ? "#ef4444" : "#10b981";
     const aiBg = priority === "CRITICAL" || priority === "HIGH" ? "#fef2f2" : "#f0fdf4";
 
@@ -233,6 +268,7 @@ function renderDetailsContent(action) {
                 </div>` : ''}
         </div>`;
 }
+
 
 function getStatusBadgeClass(label) {
     if (['PASSED', 'SUCCESS'].includes(label)) return 'badge-success';

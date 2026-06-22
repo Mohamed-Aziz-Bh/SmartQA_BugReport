@@ -1,0 +1,31 @@
+# --- Java / Maven ---
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# --- Python ---
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# --- Modèles IA & Données Lourdes ---
+**/saved_model/
+**/checkpoint-*/
+*.pt
+*.bin
+*.pkl
+
+# --- IDEs ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

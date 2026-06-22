@@ -1,9 +1,5 @@
-// Smart QA – Content Script (v3.0.0)
 console.log("%c🔍 SmartQA Sensor: Monitoring actif", "color: #0ea5e9; font-weight: bold;");
-
-/**
- * 1. CAPTURE DES ERREURS JAVASCRIPT (Runtime)
- */
+//Interception des erreurs JS et des promesses non gérées
 window.addEventListener('error', (event) => {
     const errorData = {
         type: "JS_ERROR",
@@ -17,9 +13,6 @@ window.addEventListener('error', (event) => {
     sendToBackground("BROWSER_CONSOLE_LOG", errorData);
 });
 
-/**
- * 2. CAPTURE DES PROMESSES NON GÉRÉES (Async Errors)
- */
 window.addEventListener('unhandledrejection', (event) => {
     const errorData = {
         type: "PROMISE_ERROR",
@@ -29,10 +22,7 @@ window.addEventListener('unhandledrejection', (event) => {
     sendToBackground("BROWSER_CONSOLE_LOG", errorData);
 });
 
-/**
- * 3. INTERCEPTION DES REQUÊTES RÉSEAU (Fetch/XHR échoués)
- * Note: Pour un PFE, capturer les 4xx/5xx est crucial pour l'IA
- */
+//Fetch
 const originalFetch = window.fetch;
 window.fetch = async (...args) => {
     try {
@@ -56,24 +46,17 @@ window.fetch = async (...args) => {
     }
 };
 
-/**
- * 4. ÉCOUTEUR DE MESSAGES (Réception depuis le Background)
- * Permet d'afficher des alertes ou des overlays si l'IA détecte un bug critique
- */
+//Listener
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.type === "NEW_REPORT_FROM_BACKEND") {
         const data = request.data;
-        
-        // Si l'IA détecte une priorité CRITICAL, on peut faire clignoter le bord de la page
         if (data.priority === "CRITICAL" || data.priority === "HIGH") {
             showVisualAlert(data.analysis, data.priority);
         }
     }
 });
 
-/**
- * 5. FONCTIONS UTILITAIRES
- */
+//Envoie
 function sendToBackground(type, payload) {
     chrome.runtime.sendMessage({
         type: type,
@@ -81,10 +64,10 @@ function sendToBackground(type, payload) {
         url: window.location.href,
         title: document.title
     }).catch(() => {
-        // Évite les erreurs si l'extension est rechargée
     });
 }
 
+//Alerte
 function showVisualAlert(analysis, priority) {
     const alertDiv = document.createElement('div');
     alertDiv.style = `
@@ -100,7 +83,6 @@ function showVisualAlert(analysis, priority) {
     setTimeout(() => alertDiv.remove(), 5000);
 }
 
-// Ajout d'une petite animation CSS via JS
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {

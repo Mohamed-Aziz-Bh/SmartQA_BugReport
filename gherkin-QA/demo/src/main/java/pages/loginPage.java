@@ -11,8 +11,6 @@ public class loginPage {
     
     private WebDriver driver;
     private WebDriverWait wait;
-
-    // Constructor to initialize WebDriver and WebDriverWait
     public loginPage(WebDriver driver) {
         if (driver == null) throw new IllegalArgumentException("Driver cannot be null");
         this.driver = driver;

@@ -58,7 +58,6 @@ public class Hooks {
             String status = scenario.getStatus() != null ? scenario.getStatus().toString() : "FAILED";
             String base64Screenshot = "";
 
-            // 1. Capture d'écran (Uniquement en cas d'échec)
             if (scenario.isFailed() && driver != null) {
                 try {
                     byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -68,23 +67,26 @@ public class Hooks {
                 }
             }
 
-            // 2. EXTRACTION FILTRÉE DES STATUTS RÉELS
             List<String> realStatuses = new ArrayList<>();
+            String errorMessage = "";
             try {
                 Field delegateField = scenario.getClass().getDeclaredField("delegate");
                 delegateField.setAccessible(true);
                 Object delegate = delegateField.get(scenario);
 
-                // On récupère la liste brute des résultats
                 Field stepResultsField = delegate.getClass().getDeclaredField("stepResults");
                 stepResultsField.setAccessible(true);
                 List<io.cucumber.plugin.event.Result> results = (List<io.cucumber.plugin.event.Result>) stepResultsField.get(delegate);
 
-                // CRITIQUE : Cucumber peut inclure les Hooks dans stepResults.
-                // On essaie de récupérer uniquement les "testSteps" pour synchroniser avec le .feature
                 for (io.cucumber.plugin.event.Result res : results) {
-                    // On ajoute le statut en minuscule (passed, failed, skipped, etc.)
-                    realStatuses.add(res.getStatus().toString().toLowerCase());
+                    String currentStatus = res.getStatus().toString().toLowerCase();
+                    realStatuses.add(currentStatus);
+                    if (currentStatus.equals("failed") && res.getError() != null) {
+                        errorMessage = res.getError().getMessage();
+                        if (errorMessage == null || errorMessage.isEmpty()) {
+                            errorMessage = res.getError().toString();
+                        }
+                    }
                 }
 
                 System.out.println("📊 Statuts détectés par Cucumber : " + realStatuses);
@@ -92,11 +94,10 @@ public class Hooks {
                 System.err.println("⚠️ Réflexion échouée : " + e.getMessage());
             }
 
-            // 3. SYNCHRONISATION PRÉCISE AVEC LE FICHIER .FEATURE
             JSONArray stepsArray = new JSONArray();
             try {
                 URI uri = scenario.getUri();
-                String pathStr = Paths.get(uri).toString(); // Plus robuste que replace()
+                String pathStr = Paths.get(uri).toString();
                 List<String> lines = Files.readAllLines(Paths.get(pathStr));
 
                 String targetName = scenario.getName().split(" -- @")[0].trim();
@@ -105,31 +106,23 @@ public class Hooks {
 
                 for (String line : lines) {
                     String t = line.trim();
-
-                    // Détection du début du bon scénario
                     if ((t.startsWith("Scenario:") || t.startsWith("Scenario Outline:")) && t.contains(targetName)) {
                         scenarioFound = true;
                         continue;
                     }
 
                     if (scenarioFound) {
-                        // Si on tombe sur un nouveau bloc, on arrête
                         if (t.startsWith("Scenario:") || t.startsWith("Scenario Outline:") || t.startsWith("@") || t.startsWith("Examples:")) {
                             break;
                         }
-
-                        // On ne traite que les lignes commençant par un mot-clé Gherkin
                         if (t.matches("^(Given|When|Then|And|But|\\*)\\s+.*")) {
                             JSONObject stepObj = new JSONObject();
                             stepObj.put("text", t);
-
-                            // SYNCHRONISATION AVEC L'INDEX RÉEL
                             if (currentStepIdx < realStatuses.size()) {
                                 String s = realStatuses.get(currentStepIdx);
                                 stepObj.put("status", s);
                                 System.out.println("🔗 Match : [" + s + "] -> " + t);
                             } else {
-                                // Si Cucumber n'a pas encore de résultat pour cette étape (ex: crash prématuré)
                                 stepObj.put("status", "skipped");
                             }
 
@@ -142,17 +135,19 @@ public class Hooks {
                 System.err.println("⚠️ Erreur synchronisation Feature : " + e.getMessage());
             }
 
-            // 4. Envoi du Payload
             JSONObject payload = new JSONObject();
             payload.put("scenario_name", scenario.getName());
             payload.put("status", status);
             payload.put("steps", stepsArray);
-            payload.put("error_details", scenario.isFailed() ? "Échec détecté dans : " + scenario.getName() : "Succès");
+            if (scenario.isFailed()) {
+                payload.put("error_details", errorMessage.isEmpty() ? "Erreur inconnue" : errorMessage);
+            } else {
+                payload.put("error_details", "Succès");
+            }
             payload.put("screenshot", base64Screenshot);
 
             sendDataToFastAPI(payload.toString());
 
-            // 5. Reporting Classique
             if (scenario.isFailed()) {
                 _scenario.fail("Test échoué");
             } else {

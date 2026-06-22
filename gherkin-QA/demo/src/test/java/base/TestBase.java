@@ -16,9 +16,6 @@ public class TestBase {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
 
-    /**
-     * Synchronise le driver initialisé dans Hooks avec TestBase
-     */
     public static void setDriver(WebDriver newDriver) {
         driver = newDriver;
         if (driver != null) {
@@ -30,16 +27,10 @@ public class TestBase {
         return driver;
     }
 
-    /**
-     * Envoie des logs de suivi à l'extension (Succès, Début, Fin)
-     * Pour les ERREURS, on utilise le signal réseau CDP dans Hooks.java
-     */
     public static void notifyExtension(String type, String message) {
         if (driver == null) return;
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
-
-            // Nettoyage minimal pour éviter les erreurs de syntaxe JS
             String cleanMessage = message.replace("'", "\\'").replace("\n", " ");
 
             String script = String.format(
@@ -55,9 +46,6 @@ public class TestBase {
         }
     }
 
-    /**
-     * Capture une image en cas d'échec pour le rapport Extent
-     */
     public static String captureScreenshot(String scenarioName) {
         if (driver == null) return "";
         try {
@@ -77,9 +65,6 @@ public class TestBase {
         }
     }
 
-    /**
-     * Fermeture propre du navigateur
-     */
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
